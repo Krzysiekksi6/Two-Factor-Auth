@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Navbar"
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -40,6 +41,7 @@ const Login = () => {
 
     return (
         <div className='login__container'>
+            <Navbar />
             <h2>Login </h2>
             <form className='login__form' onSubmit={handleSubmit}>
                 <label htmlFor='email'>Email</label>
@@ -61,6 +63,8 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
+                <div className={"login__footer"}>
+
                 <button className='loginBtn'>SIGN IN</button>
                 <p>
                     Don't have an account?{" "}
@@ -68,6 +72,7 @@ const Login = () => {
                         Sign up
                     </span>
                 </p>
+                </div>
             </form>
         </div>
     );

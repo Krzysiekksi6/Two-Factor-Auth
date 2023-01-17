@@ -7,8 +7,15 @@
 }
 input {
   height: 45px;
-  padding: 10px 15px;
+  padding: 1rem 2rem;
+  border: none;
+  border-bottom: 2px solid #ccc;
   margin-bottom: 15px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #FF5722;
 }
 button {
   width: 200px;
@@ -18,6 +25,41 @@ button {
   cursor: pointer;
   font-size: 16px;
 }
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 80px;
+  line-height: 80px;
+  background-color: #00ADB5;
+  color: #EEEEEE;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #00ADB5;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  background-color: #00ADB5;
+}
+a {
+  background-color: #00ADB5;
+  color: #EEEEEE;
+  font-size: 24px;
+  text-decoration: none;
+  transition: color .3s;
+}
+a:hover {
+  color: #303841;
+}
+
+
+
 .login__container,
 .signup__container,
 .verify,
@@ -30,27 +72,49 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.dashboard {
+  background-color: #EEEEEE;
+}
+
+.card {
+  background-color: #ffff;
+  padding: 14rem 7rem;
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px #677380;
+}
+
 .login__form,
 .verify__form,
 .signup__form {
-  width: 100%;
+  width: 70%;
   display: flex;
   flex-direction: column;
+}
+.signup__footer,
+.login__footer
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .loginBtn,
 .signupBtn,
 .codeBtn {
-  background-color: green;
+  background-color: #FF5722;
   color: #fff;
-  margin-bottom: 15px;
+  margin: 15px;
+  border-radius: 8px;
 }
 .signOutBtn {
-  background-color: #c21010;
+  background-color: #FF5722;
   color: #fff;
+  border-radius: 8px;
 }
 .link {
   cursor: pointer;
-  color: rgb(39, 147, 39);
+  color: #FF5722;
 }
 .code {
   width: 50%;
@@ -67,3 +131,4 @@ button {
     padding: 30px;
   }
 }
+

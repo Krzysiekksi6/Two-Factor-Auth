@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
+    /*useEffect(() => {
         const checkUser = () => {
             if (!localStorage.getItem("username")) {
                 navigate("/");
             }
         };
         checkUser();
-    }, [navigate]);
+    }, [navigate]);*/
 
     const handleSignOut = () => {
         localStorage.removeItem("username");
@@ -20,10 +20,14 @@ const Dashboard = () => {
 
     return (
         <div className='dashboard'>
-            <h2 style={{ marginBottom: "30px" }}>Hey User</h2>
+        <div className='card'>
+            <h2 style={{ marginBottom: "30px" }}>Hey Mr. / Mrs. </h2>
+            <h3 style={{ marginTop: "30px" }}>{localStorage.getItem("username")}</h3>
             <button className='signOutBtn' onClick={handleSignOut}>
                 SIGN OUT
             </button>
+        </div>
+
         </div>
     );
 };
