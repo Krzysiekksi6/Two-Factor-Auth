@@ -29,8 +29,8 @@ button {
   position: fixed;
   top: 0;
   width: 100vw;
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
+  line-height: 60px;
   background-color: #00ADB5;
   color: #EEEEEE;
 }

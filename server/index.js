@@ -1,7 +1,15 @@
+
+const User = require('./User');
 const express = require("express");
 const cors = require("cors");
 const app = express();
 const PORT = 4000;
+
+const crypto = require('crypto')
+
+const bodyParser = require("body-parser");
+
+const mongoConnect = require('./database').mongoConnect;
 
 const { Novu } = require("@novu/node");
 
@@ -62,6 +70,12 @@ app.post("/api/register", (req, res) => {
     const { email, password, tel, username } = req.body;
     let result = users.filter((user) => user.email === email || user.tel === tel);
     if (result.length === 0) {
+        const hashPassowrd = crypto.createHash("md5").update(password).digest().toString('hex');
+        const newUserDto = new User(generateID(), email, hashPassowrd, username, tel);
+        newUserDto.save()
+            .then(result => {
+                console.log('Created Users')
+        })
         const newUser = { id: generateID(), email, password, username, tel };
         users.push(newUser);
         return res.json({
@@ -82,7 +96,11 @@ app.post("/api/verification", (req, res) => {
     });
 });
 
+mongoConnect(() => {
+    app.listen(PORT, () => {
+        console.log(`Server listening on ${PORT}`);
+    });
+})
 
-app.listen(PORT, () => {
-    console.log(`Server listening on ${PORT}`);
-});
+
+
