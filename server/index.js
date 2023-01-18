@@ -13,7 +13,7 @@ const mongoConnect = require('./database').mongoConnect;
 
 const { Novu } = require("@novu/node");
 
-const novu = new Novu("966a4245fa3f4e36c66378e92e7b7abc");
+const novu = new Novu("<API_KEY>");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -45,6 +45,7 @@ const sendNovuNotification = async (recipient, verificationCode) => {
 app.post("/api/login", (req, res) => {
     const { email, password } = req.body;
     let result = users.filter(
+        //966a4245fa3f4e36c66378e92e7b7abc
         (user) => user.email === email && user.password === password
     );
 
